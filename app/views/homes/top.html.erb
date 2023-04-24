@@ -1,25 +1,26 @@
 <div class="container my-3">
   
   <div class="row">
-    <h1>welcome to <i class="fas fa-book"></i>Bookers!!</h1>
-  </div>
-    
-  <div class="row">
-      In <i class="fas fa-book"></i>Booker<br>
-      you can share and exchange your opinions, inpressions,
-      and emotions,<br>about various books!
-  </div>
-  
-  <div class="col-6 mx-auto py-3">
-    <button type ="button" class="btn btn-primary btn-sm">
-      <%= link_to "Log in", user_session_path, class: 'text-light' %>
-    </button>
+    <div class="mx-auto col-6">
+    <h1>welcome to <i class="fas fa-book"></i><strong>Bookers</strong> !! </h1>
+      <p>In <i class="fas fa-book"></i><strong>Bookers</strong>,</p>
+      <p>you can share and exchange your opinions , inpressions , and emotions ,</p>
+      <p>about various books!</p>
+    </div>
   </div>
   
-  <div class="col-6 mx-auto">
-    <button type ="button" class="btn btn-success btn-sm">
-      <%= link_to "Sign up", new_user_registration_path, class: 'text-light' %>
-    </button>
+  <div class="mx-auto col-5">
+    <div class="row pt-1">
+      <button type ="button" class="btn btn-info btn-sm btn-block">
+        <%= link_to "Log in", user_session_path, class: 'text-light' %>
+      </button>
+    </div>
+  
+    <div class="row pt-3">
+      <button type ="button" class="btn btn-success btn-sm btn-block">
+        <%= link_to "Sign up", new_user_registration_path, class: 'text-light' %>
+      </button>
+    </div>
   </div>
 
 </div>

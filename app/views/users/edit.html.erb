@@ -1,2 +1,26 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="d-flex flex-column mx-auto">
+      <%= form_with model: @user do |f| %>
+        <h2 class="pt-3">User info</h2>
+        <div class="form-group">
+          <label for="InputName">Name</label>
+          <p><%= f.text_field :name, autoforcus: true, id: "InputName" %></p>
+        </div>
+        <div class="form-group">
+          <label for="InputImage">Image</label>
+          <p><%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*" %></p>
+        </div>
+        <div class="form-group">
+          <label for="InputIntroduction">Introduction</label>
+          <p><%= f.text_area :opinion, autoforcus: true, id: "InputIntroduction" %></p>
+        </div>
+        <div class="form-group">
+          <p><%= f.submit 'Update User', class: 'btn btn-secondary' %></p>
+        </div>
+      <% end %>
+    </div>
+      
+
+  </div>
+</div>

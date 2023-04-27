@@ -1,2 +1,27 @@
-<h1>Books#edit</h1>
-<p>Find me in app/views/books/edit.html.erb</p>
+<div class="container">
+  <div class="row">
+    
+    <div class="d-flex flex-column mx-auto">
+      <%= form_with model: @book do |f| %>
+      
+        <h2 class="pt-3">Editing Book</h2>
+        
+        <div class="form-group">
+          <label for="InputTitle">Title</label>
+          <p><%= f.text_field :title, autoforcus: true, id: "InputTitle" %></p>
+        </div>
+        
+        <div class="form-group">
+          <label for="InputOpinion">Opinion</label>
+          <p><%= f.text_area :body, autoforcus: true, id: "InputOpinion" %></p>
+        </div>
+        
+        <div class="form-group">
+          <p><%= f.submit 'Update Book', class: 'btn btn-secondary' %></p>
+        </div>
+      <% end %>
+      
+    </div>
+
+  </div>
+</div>

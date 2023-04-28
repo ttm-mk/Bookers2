@@ -4,22 +4,12 @@
     <div class="col-7 mx-auto">
       <h2>Book detail</h2>
         <table class="table">
-
-          <thred>
-            <tr>
-              <th></th>
-              <th>Title</th>
-              <th>Opinion</th>
-              <th></th>
-              <th></th>
-            </tr>
-          </thred>
-
-        <tbody>
           <tr>
             <td>
-              <%= image_tag @bookdetail.user.get_profile_image(100,100) %>
-              <p><%= link_to @bookdetail.user.name, book_path(@bookdetail.id) %></p>
+              <%= link_to user_path(@bookdetail.user_id) do %>
+                <%= image_tag @bookdetail.user.get_profile_image(100,100) %>
+                <p><%= @bookdetail.user.name %></p>
+              <% end %>
             </td>
             <td>
               <%= link_to @bookdetail.title, book_path(@bookdetail) %>
@@ -36,7 +26,6 @@
               </td>
             <% end %>
           </tr>
-        </tbody>
 
       </table>
     </div>

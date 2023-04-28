@@ -1,2 +1,29 @@
-<h1>Users#index</h1>
-
+<!--template-file-->
+<%= render 'books/left-page', user: @user, book: @book %>
+    
+    <div class="col-7 mx-auto">
+      <h2>Books</h2>
+        <table class="table">
+          
+          <thred>
+            <tr>
+              <th>Image</th>
+              <th>name</th>
+              <th></th>
+            </tr>
+          </thred>
+          
+        <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= image_tag book.user.get_profile_image(100,100) %></td>
+            <td><%= user.name %></td>
+            <td><%= link_to "show", user_path %></td>
+          </tr>
+        <% end %>
+        </tbody>
+        
+      </table>
+    </div>
+  </div>
+</div>

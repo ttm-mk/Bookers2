@@ -1,44 +1,5 @@
-<div class="container">
-  <div class="row pt-3">
-    
-    <div class="col-3">
-      <h2>User info</h2>
-      <p><%= image_tag @user.get_profile_image(100,100) %></p>
-      
-      <table class="table solid">
-        <tbody>
-          <tr>
-          <th>name</th>
-          <td><%= current_user.name %></td>
-          </tr>
-          <tr>
-            <th class="pt-2">introduction</th>
-            <td><%= current_user.introduction %></td>
-          </tr>
-        </tbody>
-      </table>
-      
-      <!--editbtn-->
-      
-      <button type="button" class="btn btn-outline-secondary btn-block" >
-        <%= link_to edit_user_path(@user) do %>
-          <i class="fa-solid fa-user-gear"></i>a
-        <% end %>
-      </button>
-
-      <!--newbooks-->
-      <div class="py-3">
-        <h2>New book</h2>
-        <%= form_with model: @book do |f| %>
-         <p>Title</p>
-          <%= f.text_field :title %>
-         <p>Opinion</p>
-           <%= f.text_area :body %>
-          
-          <p><%= f.submit 'Create Book', class: 'btn btn-success' %></p>
-        <% end %>
-      </div>
-    </div>
+<!--template-file-->
+<%= render 'books/left-page', user: @user, book: @book %>
     
     <div class="col-7 mx-auto">
       <h2>Books</h2>
@@ -55,7 +16,7 @@
         <tbody>
         <% @books.each do |book| %>
           <tr>
-            <td><%= image_tag @user.get_profile_image(100,100) %></td>
+            <td><%= image_tag book.user.get_profile_image(100,100) %></td>
             <td><%= book.title %></td>
             <td><%= book.body %></td>
           </tr>

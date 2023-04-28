@@ -1,2 +1,44 @@
-<h1>Books#show</h1>
-<p>Find me in app/views/books/show.html.erb</p>
+<!--temlate-->
+<%= render 'books/left-page', user: @user, book: @book %>
+
+    <div class="col-7 mx-auto">
+      <h2>Book detail</h2>
+        <table class="table">
+
+          <thred>
+            <tr>
+              <th></th>
+              <th>Title</th>
+              <th>Opinion</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thred>
+
+        <tbody>
+          <tr>
+            <td>
+              <%= image_tag @books.user.get_profile_image(100,100) %>
+              <p><%= link_to @books.user.name, user_path(@books.user_id) %></p>
+            </td>
+            <td>
+              <%= link_to @books.title, book_path(@books.user_id) %>
+              </td>
+            <td><%= @books.body %></td>
+            
+            <% if @books.user == current_user %>
+              <td>
+                <%= link_to "Edit", edit_book_path(@books.id), class: 'btn btn-success btn-sm' %>
+              </td>
+              <td>
+              <%= link_to "Destroy", book_path(@books.id), method: :delete, "data-confirm" => "本当に削除しますか？",
+                  class: 'btn btn-danger btn-sm' %>
+              </td>
+            <% end %>
+          </tr>
+        </tbody>
+
+      </table>
+    </div>
+  </div>
+</div>

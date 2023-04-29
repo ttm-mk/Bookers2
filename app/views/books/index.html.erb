@@ -1,24 +1,5 @@
-<% if @book.errors.any? %>
-
-  <% if @book.errors.count == 1 %>
-    <%= @book.errors.count %>error occurred.
-  <ul>
-    <% @book.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
-    
-  <% else %>
-    <%= @book.errors.count %>errors occurred.
-  <ul>
-    <% @book.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
-  <% end %>
-<% end %>
-
 <!--template-file-->
+<%= render 'books/error-message', book: @book %>
 <%= render 'books/left-page', user: @user, book: @book %>
 
 
@@ -52,5 +33,6 @@
 
       </table>
     </div>
+    
   </div>
 </div>

@@ -1,16 +1,21 @@
 <% if @user.errors.any? %>
 
-  <% if @user.errors.count == 1 %>
-    <%= @user.errors.count %>error occurred.
-  <% else %>
-    <%= @user.errors.count %>errors occurred.
+  <% if @user.errors.count >= 2 %>
+    <%=  @user.errors.count %>errors occurred.
+    <ul>
+      <%  @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+    
+  <% else  @user.errors.count == 1 %>
+    <%=  @user.errors.count %>error occurred.
+    <ul>
+      <%  @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
   <% end %>
-  
-  <ul>
-    <% @user.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
 <% end %>
 
 

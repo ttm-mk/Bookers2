@@ -21,11 +21,11 @@
 
       <!--editbtn-->
 
-      <button type="button" class="btn btn-outline-secondary btn-block" >
-        <%= link_to edit_user_path(user) do %>
-          <i class="fa-solid fa-user-gear"></i>a
+      <div>
+        <%= link_to edit_user_path(user), class: "btn btn-outline-secondary btn-block" do %>
+          <i class="fas fa-user-cog"></i>
         <% end %>
-      </button>
+      </div>
 
       <!--newbooks-->
       <div class="py-3">

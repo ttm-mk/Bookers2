@@ -1,43 +1,49 @@
-<div class="container">
   <div class="row pt-3">
 
     <!--Userinfomation-->
     <div class="col-3">
       <h2>User info</h2>
-      <p><%= image_tag user.get_profile_image(100,100) %></p>
+      <%= image_tag user.get_profile_image(100,100) %>
 
-      <table class="table solid">
+      <table class="table">
         <tbody>
+
           <tr>
           <th>name</th>
-          <td><%= current_user.name %></td>
+          <th><%= current_user.name %></th>
           </tr>
+
           <tr>
-            <th class="pt-2">introduction</th>
-            <td><%= current_user.introduction %></td>
+            <th>introduction</th>
+            <th><%= current_user.introduction %></th>
           </tr>
+
         </tbody>
       </table>
 
-      <!--editbtn-->
+    <!--editbtn-->
 
-      <div>
+      <div class="pt-4">
         <%= link_to edit_user_path(user), class: "btn btn-outline-secondary btn-block" do %>
           <i class="fas fa-user-cog"></i>
         <% end %>
       </div>
 
-      <!--newbooks-->
-      <div class="py-3">
+    <!--newbooks-->
+      <div>
         <%= form_with model: book do |f| %>
-          <h2>New book</h2>
-           <p>Title</p>
-             <%= f.text_field :title %>
-           <p>Opinion</p>
-             <%= f.text_area :body %>
+          <h2 class="pt-3">New book</h2>
+          <div>
+             Title
+             <%= f.text_field :title, class: "form-control" %>
+          </div>
+          <div class="pt-3">
+             Opinion
+             <%= f.text_area :body, class: "form-control"%>
+          </div>
 
-           <p><%= f.submit 'Create Book', class: 'btn btn-success' %></p>
+          <p><%= f.submit 'Create Book', class: 'btn btn-success mt-3' %></p>
         <% end %>
       </div>
 
-    </div>
+  </div>

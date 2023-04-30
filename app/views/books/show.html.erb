@@ -1,34 +1,42 @@
 <%= flash[:notice] %>
+
+<div class="container">
+
 <!--temlate-->
 <%= render 'books/left-page', user: @user, book: @book %>
 
-    <div class="col-7 mx-auto">
-      <h2>Book detail</h2>
-        <table class="table">
+    <div class="col-8 mx-auto">
+      <h2 class="ml-5">Book detail</h2>
+        <table class="table ml-5">
           <tr>
+
             <td>
               <%= link_to user_path(@bookdetail.user_id) do %>
                 <%= image_tag @bookdetail.user.get_profile_image(100,100) %>
                 <p><%= @bookdetail.user.name %></p>
               <% end %>
             </td>
+
             <td>
               <%= link_to @bookdetail.title, book_path(@bookdetail) %>
             </td>
+
             <td><%= @bookdetail.body %></td>
 
             <% if @bookdetail.user == current_user %>
               <td>
                 <%= link_to "Edit", edit_book_path(@bookdetail.id), class: 'btn btn-success btn-sm' %>
               </td>
+
               <td>
               <%= link_to "Destroy", book_path(@bookdetail.id), method: :delete, "data-confirm" => "本当に削除しますか？",
                   class: 'btn btn-danger btn-sm' %>
               </td>
+
             <% end %>
           </tr>
 
-      </table>
+        </table>
     </div>
   </div>
 </div>
